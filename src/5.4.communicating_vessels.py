@@ -18,7 +18,7 @@ def interleave(*iterables):
     return list(itertools.chain.from_iterable(zip(*iterables)))
 
 
-def generator_interleaves(*iterables):
+def generator_interleave(*iterables):
     """Yields interleaved items from given iterables.
 
     Args:
