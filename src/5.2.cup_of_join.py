@@ -1,4 +1,16 @@
+"""
+Week 5 Ex 2 - cup_of_join
+"""
 def cup_of_join(*lists, sep='-'):
+    """Create a list with all the items of each argument list seperated by a given seperator string.
+
+    Args:
+        lists (tuple): zero or more lists.
+        sep (str): seperator string.
+
+    Returns:
+        list: A list with all the items from all argument lists seperatad by the seperator string.
+    """
     # handle edge case - lists argument is empty
     if not lists:
         return None
@@ -6,9 +18,7 @@ def cup_of_join(*lists, sep='-'):
     result_list = []
     for lst in lists:
         for item in lst:
-            # append each argument list's items to the final list
             result_list.append(item)
-        # append the seperator char after each argument list
         result_list.append(sep)
 
     # remove the last seperator char inserted at the end of lists concat
