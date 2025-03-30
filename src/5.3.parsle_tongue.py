@@ -1,13 +1,28 @@
+"""
+Week 5 Ex 3 - parsle_tongue
+"""
 def is_lower_alpha(byte):
-    """
-    Helper function to check if a binary byte is an ascii code of a lower case english letter.
-    :param byte: binary byte to check
-    :return: True if byte is a lower case ascii, otherwise False
+    """Check if a binary byte is an ascii code of a lower case english letter.
+
+    Args:
+        byte (byte): binary byte to check
+
+    Returns:
+        bool: True if byte is a lower case ascii, otherwise False
     """
     return 97 <= byte <= 122
 
 
 def parsle_tongue(filepath='resources/logo.jpg', chunk_size=1024):
+    """Yields an encrypted messages from a binary image file.
+
+    Args:
+        filepath (str, optional): The binary image file path.
+        chunk_size (int, optional): The size of each bytes chunk read from the file.
+
+    Yields:
+        str: Encrypted message (5 or more english letters and after it '!') from the binary image file.
+    """
     partial_message = b""
     try:
         with open(filepath, 'rb') as file:
@@ -41,5 +56,5 @@ def parsle_tongue(filepath='resources/logo.jpg', chunk_size=1024):
 
 if __name__ == '__main__':
     # iterating our generator to print all founded messages
-    for message in parsle_tongue():
-        print(message)
+    for message_found in parsle_tongue():
+        print(message_found)
