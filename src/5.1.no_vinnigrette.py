@@ -111,9 +111,10 @@ def no_vinnigrete(starting_date, ending_date):
     starting_date_obj = convert_date(starting_date)
     ending_date_obj = convert_date(ending_date)
     random_date = get_random_date(starting_date_obj, ending_date_obj)
-    print(random_date)
-    if is_monday(random_date):
-        print("Ain't gettin' no vinaigrette today :(")
+        if is_monday(random_date):
+        print("Ain't gettin' no vinaigrette today: " + str(random_date))
+    else:
+        print(random_date)
 
 
 if __name__ == '__main__':
