@@ -4,7 +4,7 @@ Week 5 Ex 4 - communicating_vessels
 import itertools
 
 
-def interleaves(*iterables):
+def interleave(*iterables):
     """Create an interleaved list of all iterables items.
 
     Args:
