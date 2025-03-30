@@ -15,7 +15,7 @@ def is_lower_alpha(byte):
     return 97 <= byte <= 122
 
 
-def parsle_tongue(filepath='../resources/logo.jpg', chunk_size=1024):
+def parsle_tongue(filepath='../img/logo.jpg', chunk_size=1024):
     """Yields an encrypted messages from a binary image file.
 
     Args:
