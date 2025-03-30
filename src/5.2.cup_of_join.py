@@ -1,7 +1,7 @@
 """
 Week 5 Ex 2 - cup_of_join
 """
-def cup_of_join(*lists, sep='-'):
+def cup_of_join(*lists, sep=None):
     """Create a list with all the items of each argument list seperated by a given seperator string.
 
     Args:
@@ -19,7 +19,8 @@ def cup_of_join(*lists, sep='-'):
     for lst in lists:
         for item in lst:
             result_list.append(item)
-        result_list.append(sep)
+        if sep is not None:
+            result_list.append(sep)
 
     return result_list
 
