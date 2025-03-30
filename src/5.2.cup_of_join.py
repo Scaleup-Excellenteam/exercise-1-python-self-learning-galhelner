@@ -21,8 +21,6 @@ def cup_of_join(*lists, sep='-'):
             result_list.append(item)
         result_list.append(sep)
 
-    # remove the last seperator char inserted at the end of lists concat
-    result_list.pop()
     return result_list
 
 
