@@ -102,10 +102,10 @@ def get_user_dates():
 
 if __name__ == '__main__':
     # get the start and end dates from the user
-    start_date, end_date = get_user_dates()
+    starting_date, ending_date = get_user_dates()
 
     # get a random date in the range between them
-    random_date = get_random_date(start_date, end_date)
+    random_date = get_random_date(starting_date, ending_date)
 
     # print the random date
     print("Random date:", random_date.date())
