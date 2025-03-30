@@ -1,3 +1,6 @@
+"""
+Week 7 Ex 2 - sent_turtle
+"""
 class PostOffice:
     """A Post Office class. Allows users to message each other.
 
@@ -113,8 +116,7 @@ class PostOffice:
 
 if __name__ == '__main__':
     # test class methods
-    usernames = ['user1', 'user2']
-    post_office = PostOffice(usernames)
+    post_office = PostOffice(usernames=['user1', 'user2'])
     for i in range(10):
         post_office.send_message(usernames[0], usernames[1], 'title' + str(i), 'body' + str(i))
     print(post_office.read_inbox(usernames[1], 2))
