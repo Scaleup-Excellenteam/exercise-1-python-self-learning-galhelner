@@ -1,6 +1,8 @@
 """
 Week 7 Ex 2 - sent_turtle
 """
+
+
 class PostOffice:
     """A Post Office class. Allows users to message each other.
 
@@ -13,7 +15,7 @@ class PostOffice:
 
     Changes I did:
         1. added title (str) to the message_details dictionary - for search_inbox implementation
-        2. added read (bool) to the message_details dictionary - for read_inbox implementation
+        2. added unread (bool) to the message_details dictionary - for read_inbox implementation
     """
 
     def __init__(self, usernames):
@@ -56,7 +58,7 @@ class PostOffice:
             'title': message_title,
             'body': message_body,
             'sender': sender,
-            'read': False,
+            'unread': True,
         }
         if urgent:
             user_box.insert(0, message_details)
@@ -84,11 +86,11 @@ class PostOffice:
             user_box = self.boxes[username][:num_messages]
 
         # only messages that isn't read need to be returned
-        user_box = [message_details for message_details in user_box if not message_details['read']]
+        user_box = [message_details for message_details in user_box if message_details['unread']]
 
         messages = []
         for message_details in user_box:
-            message_details['read'] = True
+            message_details['unread'] = False
             messages.append(message_details)
         return messages
 
@@ -109,17 +111,16 @@ class PostOffice:
         user_box = self.boxes[username]
         result_box = []
         for message_details in user_box:
-            if search_string in message_details['title'] or search_string in message_details['body']:
+            if (search_string.lower() in message_details['title'].lower() or 
+                    search_string in message_details['body'].lower()):
                 result_box.append(message_details)
         return result_box
 
 
 if __name__ == '__main__':
     # test class methods
-    users = ['user1', 'user2']
-    post_office = PostOffice(users)
-    for i in range(10):
-        post_office.send_message(users[0], users[1], 'title' + str(i), 'body' + str(i))
-    print(post_office.read_inbox(users[1], 2))
-    print(post_office.read_inbox(users[1]))
-    print(post_office.search_inbox(users[1], '2'))
+    po = PostOffice(["alice", "bob"])
+    po.send_message("alice", "bob", "Meeting", "Let's talk tomorrow")
+    po.send_message("alice", "bob", "Lunch", "Tomorrow at noon")
+    results = po.search_inbox("bob", "tomorrow")
+    print(len(results))
