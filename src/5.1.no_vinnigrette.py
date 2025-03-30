@@ -100,6 +100,12 @@ def get_user_dates():
         return start_date, end_date
 
 
+def no_vinnigrete(starting_date, ending_date):
+    starting_date_obj = convert_date(starting_date)
+    ending_date_obj = convert_date(ending_date)
+    return get_random_date(starting_date_obj, ending_date_obj)
+
+
 if __name__ == '__main__':
     # get the start and end dates from the user
     starting_date, ending_date = get_user_dates()
