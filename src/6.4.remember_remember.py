@@ -1,12 +1,18 @@
+"""
+Week 6 Ex 4 - remember_remember
+"""
 from PIL import Image
 
 
 def remember_remember(filepath, black_threshold=50):
-    """
-    Extract encrypted message from an image
-    :param filepath: encrypted file path
-    :param black_threshold: the minimum number represent black pixel
-    :return: the encrypted message
+    """Extract encrypted message from an image
+
+    Args:
+        filepath (str): encrypted file path.
+        black_threshold (int, optional): the minimum number represent black pixel.
+
+    Returns:
+        str: The encrypted message.
     """
     try:
         image = Image.open(filepath).convert('L')  # read the image using pillow package and convert it to grayscale
