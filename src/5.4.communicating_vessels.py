@@ -13,9 +13,7 @@ def interleave(*iterables):
     Returns:
         list: A list of interleaved items from all the iterables.
     """
-    # zip function will provide the interleaving process
-    # module function chain.from_iterable will flatten the tuples returned from zip
-    return list(itertools.chain.from_iterable(zip(*iterables)))
+    return [item for group in itertools.zip_longest(*iterables) for item in group if item is not None]
 
 
 def generator_interleave(*iterables):
@@ -41,6 +39,5 @@ def generator_interleave(*iterables):
 
 
 if __name__ == '__main__':
-    print(interleaves('abc', [1, 2, 3], ('!', '@', '#')))
-    for interleaved_value in generator_interleaves('abc', [1, 2, 3], ('!', '@', '#')):
-        print(interleaved_value)
+    result = list(interleave('ab', [1, 2, 3], ('@', '%')))
+    print(result)
