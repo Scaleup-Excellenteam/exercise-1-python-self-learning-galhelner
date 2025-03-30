@@ -111,8 +111,9 @@ class PostOffice:
         user_box = self.boxes[username]
         result_box = []
         for message_details in user_box:
-            if (search_string.lower() in message_details['title'].lower() or 
-                    search_string in message_details['body'].lower()):
+            title_string = message_details['title'].lower()
+            body_string = message_details['body'].lower()
+            if (search_string.lower() in title_string or search_string in body_string):
                 result_box.append(message_details)
         return result_box
 
