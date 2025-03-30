@@ -1,6 +1,8 @@
 """
 Week 5 Ex 2 - piece_of_cake
 """
+
+
 def piece_of_cake(prices, optionals=None, **amounts):
     """Calculate the total price of a cake recipe based on the ingredients prices per 100g and amonts.
 
@@ -27,12 +29,17 @@ def piece_of_cake(prices, optionals=None, **amounts):
         # making sure the ingredient isn't optional
         if ingredient not in optionals:
             # calculate the price of the current ingredient and accumulate it with the total price
-            total_price += price * (amounts[ingredient] // 100)
+            if ingredient in amounts.keys():
+                total_price += amounts[ingredient] * (price / 100)
 
     return total_price
 
 
 if __name__ == '__main__':
-    print(piece_of_cake({'chocolate': 18, 'milk': 8}, chocolate=200, milk=100))
-    print(piece_of_cake({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300))
-    print(piece_of_cake({}))
+    result = piece_of_cake(
+        prices={'bread': 25, 'jam': 10},
+        optionals=[],
+        bread=100,
+        jam=50
+    )
+    print(result)
