@@ -101,6 +101,13 @@ def get_user_dates():
 
 
 def no_vinnigrete(starting_date, ending_date):
+    """Print random date in the range of argument dates, 
+    and print no vinnigrette if the random  date is monday.
+
+    Args:
+        starting_date (str): String of starting date.
+        ending_date (str): String of ending date.
+    """
     starting_date_obj = convert_date(starting_date)
     ending_date_obj = convert_date(ending_date)
     random_date = get_random_date(starting_date_obj, ending_date_obj)
