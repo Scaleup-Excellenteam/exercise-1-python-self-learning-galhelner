@@ -1,8 +1,19 @@
+"""
+Week 5 Ex 1 - no_vinnigrette
+"""
 import datetime
 import random
 
 
 def convert_date(date):
+    """Convert a string to date object.
+
+    Args:
+        date (str): string represent a date that should be convert.
+
+    Returns:
+        date: converted date object (or None if the conversion failed).
+    """
     try:
         # trying to convert the given date string based on format template
         valid_date = datetime.datetime.strptime(date, '%Y-%m-%d')
@@ -13,6 +24,15 @@ def convert_date(date):
 
 
 def is_valid_dates(start_date, end_date):
+    """Check if two date objects of a date range (start, end) are valid.
+
+    Args:
+        start_date (date): start date of the range.
+        end_date (date): end date of the range.
+
+    Returns:
+        bool: True if the dates are valid, otherwise False.
+    """
     invalid_format_msg = "Please enter a valid date format (YYYY-MM-DD)!"
     invalid_date_range_msg = "Start date must be before end date!"
 
@@ -31,6 +51,15 @@ def is_valid_dates(start_date, end_date):
 
 
 def get_random_date(start_date, end_date):
+    """Generate a random date object that is between starting date and ending date.
+
+    Args:
+        start_date (date): start date of the range.
+        end_date (date): end date of the range.
+
+    Returns:
+        date: a random date object in the given date range.
+    """
     # calculate a random number of days between start and end dates
     days_delta = (end_date - start_date).days
     random_days_count = random.randint(0, days_delta)
@@ -39,18 +68,31 @@ def get_random_date(start_date, end_date):
 
 
 def is_monday(date):
+    """Check if the day of a date object is monday.
+
+    Args:
+        date (date): date to check its day.
+
+    Returns:
+        bool: True if the day of the date object is monday, otherwise False.
+    """
     return date.weekday() == 0
 
 
 def get_user_dates():
+    """Get the date range objects (end, start) from the user.
+
+    Returns:
+        tuple: A topule of 2 date objects based on the user input (start, end).
+    """
     while True:
         # read date strings from the user
-        start_date = input("Enter start date(YYYY-MM-DD):")
-        end_date = input("Enter end date(YYYY-MM-DD):")
+        start_date_string = input("Enter start date(YYYY-MM-DD):")
+        end_date_string = input("Enter end date(YYYY-MM-DD):")
 
         # convert date strings to date objects
-        start_date = convert_date(start_date)
-        end_date = convert_date(end_date)
+        start_date = convert_date(start_date_string)
+        end_date = convert_date(end_date_string)
 
         # dates validation
         if not is_valid_dates(start_date, end_date):
