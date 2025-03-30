@@ -29,7 +29,7 @@ def piece_of_cake(prices, optionals=None, **amounts):
         # making sure the ingredient isn't optional
         if ingredient not in optionals:
             # calculate the price of the current ingredient and accumulate it with the total price
-            if ingredient in amounts.keys():
+            if ingredient in amounts:
                 total_price += amounts[ingredient] * (price / 100)
 
     return total_price
