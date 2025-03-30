@@ -116,9 +116,10 @@ class PostOffice:
 
 if __name__ == '__main__':
     # test class methods
-    post_office = PostOffice(usernames=['user1', 'user2'])
+    users = ['user1', 'user2']
+    post_office = PostOffice(users)
     for i in range(10):
-        post_office.send_message(usernames[0], usernames[1], 'title' + str(i), 'body' + str(i))
-    print(post_office.read_inbox(usernames[1], 2))
-    print(post_office.read_inbox(usernames[1]))
-    print(post_office.search_inbox(usernames[1], '2'))
+        post_office.send_message(users[0], users[1], 'title' + str(i), 'body' + str(i))
+    print(post_office.read_inbox(users[1], 2))
+    print(post_office.read_inbox(users[1]))
+    print(post_office.search_inbox(users[1], '2'))
